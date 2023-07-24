@@ -1,3 +1,61 @@
+Path Forward
+
+
+Pseudo code to Get Location Coordinates (Geo Call):
+
+Function: getLocationCoordinates(city)
+Input: city (string) - The name of the city for which you want to get the coordinates.
+Output: Promise that resolves to an object containing latitude and longitude.
+
+Step 1: Construct the API URL using the city parameter and your API key.
+Step 2: Fetch data from the API using the constructed URL.
+Step 3: Check if the response is successful (HTTP status code 200).
+Step 4: Parse the response data to get the latitude and longitude from the API response.
+Step 5: Return a Promise that resolves to an object containing latitude and longitude.
+Step 6: Handle any errors that may occur during the API call or parsing process.
+Explanation:
+• The function takes the city as input, which is the name of the city for which you want to retrieve the location coordinates.
+• It constructs the API URL by combining the city name and your API key, then makes a fetch call to the OpenWeatherMap API using this URL.
+• After fetching the data, it checks if the response is successful (HTTP status code 200) to ensure the data is valid.
+• Next, it parses the API response to extract the latitude and longitude information.
+• The function returns a Promise that resolves to an object containing the extracted latitude and longitude.
+• If any errors occur during the API call or parsing process, the function handles them appropriately, such as logging the error or returning a default value.
+
+
+
+Pseudo code to Get 5-Day Forecast (5 Day Forecast Call):
+
+
+Function: get5DayForecast(latitude, longitude)
+
+Input: latitude (number) - The latitude of the location.
+       longitude (number) - The longitude of the location.
+Output: Promise that resolves to the 5-day forecast data.
+
+Step 1: Construct the API URL using the latitude, longitude, and your API key.
+Step 2: Fetch data from the API using the constructed URL.
+Step 3: Check if the response is successful (HTTP status code 200).
+Step 4: Parse the response data to extract the 5-day forecast information.
+Step 5: Return a Promise that resolves to the 5-day forecast data.
+Step 6: Handle any errors that may occur during the API call or parsing process.
+Explanation:
+• The function takes latitude and longitude as inputs, which are the coordinates of the location for which you want to retrieve the 5-day forecast.
+• It constructs the API URL using the provided latitude, longitude, and your API key, then makes a fetch call to the OpenWeatherMap API using this URL.
+• After fetching the data, it checks if the response is successful (HTTP status code 200) to ensure the data is valid.
+• Next, it parses the API response to extract the 5-day forecast information.
+• The function returns a Promise that resolves to the extracted 5-day forecast data.
+• If any errors occur during the API call or parsing process, the function handles them appropriately, such as logging the error or returning a default value.
+By creating these two functions, you can use them together to fetch location coordinates using the geo call and then use those coordinates to get the 5-day forecast data from the API. Remember to handle errors and provide appropriate error messages or fallback values to ensure a smooth user experience.
+
+
+
+
+
+
+
+
+
+
 # 06 Server-Side APIs: Weather Dashboard
 
 ## Your Task
