@@ -1,25 +1,30 @@
-let testButton = document.querySelector(".button")
-let urlRequest = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=4d8f86000d241e776281dc749be197b9`;
-
+let cityName = document.querySelector('#userInput');
+let bitchAssButton = document.querySelector(".btn");
+// let urlRequest = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=4d8f86000d241e776281dc749be197b9`;
 
 console.log();
 
-// ,${stateCode},${countryCode}
-// testButton.addEventListener('click', GO);
+bitchAssButton.addEventListener('click', GO);
 
-GO("tonganoxie");
-
-function GO (cityName, stateCode, countryCode, limit) {
-let locationRequest = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=4d8f86000d241e776281dc749be197b9`;
-fetch(locationRequest)
-  .then (function (response) {
-  if (!response.ok) {
-    console.log(response.statusText);
-  } else {
-    response.json()
-  .then (function(data) {
-
-    console.log(data);
-})}})}
-
-
+function GO (event) {
+  let locationRequest = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityName.value + '&limit=1&appid=4d8f86000d241e776281dc749be197b9';
+    fetch(locationRequest)
+    console.log(cityName.value)
+    event.preventDefault()
+    document.location.replace('./search-results.html')
+    }
+  
+  
+  //     .then (function (response) {
+  //     if (!response.ok) {
+  //     console.log('for the love of god');
+  //   } else {
+  //     response.json()
+  //       .then (function() {
+  //         currentTarget.preventDefault()
+  //         console.log();
+  //     console.log("You are here?");
+  //     document.location.replace("./index.html");
+  //     });
+  //   }
+  // });
