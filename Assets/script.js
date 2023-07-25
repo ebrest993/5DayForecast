@@ -1,6 +1,6 @@
 let cityName = document.querySelector('#userInput');
 let theButton = document.querySelector(".btn");
-// let urlRequest = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=4d8f86000d241e776281dc749be197b9`;
+let urlRequest = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=4d8f86000d241e776281dc749be197b9`;
 
 console.log();
 
@@ -8,19 +8,20 @@ theButton.addEventListener('click', GO);
 
 function GO (event) {
   let locationRequest = 'http://api.openweathermap.org/geo/1.0/direct?q=' + cityName.value + '&limit=1&appid=4d8f86000d241e776281dc749be197b9';
-    
   fetch(locationRequest)
-    .then(
-           // if(response) {
-      //   alert("please enter a valid city name");
-      // } else {
-        console.log(cityName.value),
-        event.preventDefault(),
-        document.location.replace('./search-results.html')
+    .then(function(response) {
+      response.json();
+      console.log(response)
+      // document.location.replace('./search-results.html')
+    }
+  );
+  event.preventDefault()
+};
     
-        )};
-  
-  
+    
+    // if(response) {
+//   alert("please enter a valid city name");
+// } else {
   
   //     .then (function (response) {
   //     if (!response.ok) {
