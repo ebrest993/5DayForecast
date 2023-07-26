@@ -8,6 +8,8 @@ let lowTemp = document.querySelector(".low");
 let cards = document.querySelectorAll(".card");
 let test = document.querySelector(".test");
 
+console.log();
+
 theButton.addEventListener('click', GO);
 
 function GO(event) {
@@ -72,6 +74,10 @@ function currentWeather(data,city) {
         currentFeels.textContent = "Feels like: " + data[i].main.feels_like
         tempLow.textContent = 'Low: ' + data[i].main.temp_min
         tempHigh.textContent = 'High: ' + data[i].main.temp_max
+
+        let weekDay = currentTitle.textContent;
+        weekDay = dayjs(weekDay).format("MMM d, YYYY, hh:mm:ss a");
+        console.log(weekDay);
 
         test.classList.add("card-group");
         // currentCard.setAttribute = ("class", "card");
