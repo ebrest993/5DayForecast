@@ -52,15 +52,28 @@ function fetchInfo(locationRequest){
     
     function currentWeather (newCity, data) {
       let currentCard = document.createElement("p");
-      test.append(currentCard);
-      currentCard.textContent =
-        [
-          data.main.temp,
-          data.weather[0].description,
-          ("Feels like: " + data.main.feels_like),
-          ('Low: ' + data.main.temp_min),
-          ('High: ' + data.main.temp_max),
-        ];      
-      console.log(currentCard);
-      console.log(test);
+      // test.append(currentCard);
+      let weatherData = currentCard.textContent =
+      [data.main.temp,
+      data.weather[0].description,
+      ("Feels like: " + data.main.feels_like),
+      ('Low: ' + data.main.temp_min),
+      ('High: ' + data.main.temp_max)];      
+      createCard (currentCard, weatherData);
+      setAttrFunc(currentCard, weatherData);
+}
+
+function setAttrFunc (currentCard) {
+  currentCard.setAttribute = ("class", "card");
+  currentCard.setAttribute = ("class", "card-body");
+  currentCard.setAttribute = ("class", "card-title");
+  currentCard.setAttribute = ("class", "weather");
+  currentCard.setAttribute = ("class", "feels-like");
+}
+
+function createCard (currentCard, weatherData) {
+  for (i=0; i < weatherData.length; i++) {
+  weatherData = document.createElement("li");
+  }
+  console.log(weatherData.length);
 }
