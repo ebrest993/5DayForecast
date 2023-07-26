@@ -1,11 +1,14 @@
 let cityName = document.querySelector('#userInput');
 let theButton = document.querySelector(".btn");
 let rightNow = document.querySelector(".right-now");
-let weatherCon = document.querySelector(".weather")
+let weatherCond = document.querySelector(".weather")
 let feelsLike = document.querySelector(".feels-like");
 let highTemp = document.querySelector(".high");
 let lowTemp = document.querySelector(".low");
+let cards = document.querySelectorAll(".card");
+let icon = document.querySelector(".icon");
 
+console.log();
 
 console.log();
 
@@ -29,16 +32,13 @@ const locationRequest = 'http://api.openweathermap.org/geo/1.0/direct?q=' + city
         })
         .then(function (secRes) {
           console.log(secRes)
-          for (i=0; i<=4; i++) {
-            // for (j=0; j < mainTemp.length; j++) {
+          for (i=0; i <= cards.length; i++) {
+              icon.textContent = secRes.list[i].weather.icon
               rightNow.textContent = secRes.list[i].main.temp
-              weatherCon.textContent = secRes.list[i].weather[0].description
+              weatherCond.textContent = secRes.list[i].weather[0].description
               feelsLike.textContent = ("Feels like: " + secRes.list[i].main.feels_like)
               lowTemp.textContent = ('Low: ' + secRes.list[i].main.temp_min)
               highTemp.textContent = ('High: ' + secRes.list[i].main.temp_max)
-
-
-            // }
           }
     })
   })
