@@ -1,3 +1,7 @@
 * {
     background-color: lightgray;
 }
+
+.card-group {
+    display: none;
+}
