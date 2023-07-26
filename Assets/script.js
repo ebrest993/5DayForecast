@@ -66,7 +66,7 @@ function currentWeather(data,city) {
         
 
         // test.append(currentCard);
-        currentTitle.textContent = city;
+        currentTitle.textContent = data[i].dt;
         currentTemp.textContent = "Temp: " + data[i].main.temp
         currentDescr.textContent = " Description: " + data[i].weather[0].description
         currentFeels.textContent = "Feels like: " + data[i].main.feels_like
