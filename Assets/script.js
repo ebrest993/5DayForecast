@@ -56,12 +56,13 @@ function historyButtons(city) {
 function currentWeather(data,city) {
     for (let i = 0; i < data.length; i = i + 8) {
         let currentCard = document.createElement("div");
-        let currentTitle = document.createElement("h6")
+        let currentTitle = document.createElement("h5")
         let currentTemp = document.createElement("div")
         let currentDescr= document.createElement("div")
         let currentFeels = document.createElement("div")
         let tempLow = document.createElement("div");
         let tempHigh = document.createElement("div");
+        console.log(currentCard);
         
 
         // test.append(currentCard);
@@ -72,14 +73,23 @@ function currentWeather(data,city) {
         tempLow.textContent = 'Low: ' + data[i].main.temp_min
         tempHigh.textContent = 'High: ' + data[i].main.temp_max
 
-        currentCard.setAttribute = ("class", "card");
-        currentTitle.setAttribute = ("class", "card-title");
-        currentTemp.setAttribute = ("class", "card-body");
-        currentDescr.setAttribute = ("class", "card-body");
-        currentFeels.setAttribute = ("class", "card-body");
-        tempLow.setAttribute = ("class", "card-body");
-        currentCard.setAttribute = ("class", "weather");
-        currentCard.setAttribute = ("class", "feels-like");
+        test.classList.add("card-group");
+        // currentCard.setAttribute = ("class", "card");
+        currentCard.classList.add("card", "card-body");
+        // currentTitle.setAttribute = ("class", "card-title");
+        currentTitle.classList.add("card-title");
+        // currentTemp.setAttribute = ("class", "card-body");
+        currentTemp.classList.add("card-text");
+        // currentDescr.setAttribute = ("class", "card-body");
+        currentDescr.classList.add("card-text");
+        // currentFeels.setAttribute = ("class", "card-body");
+        currentFeels.classList.add("card-text");
+        // tempLow.setAttribute = ("class", "card-body");
+        tempLow.classList.add("card-text");        
+        tempHigh.classList.add("card-text");
+
+// currentCard.setAttribute = ("class", "weather");
+        // currentCard.setAttribute = ("class", "feels-like");
         currentCard.appendChild(currentTitle);
         currentCard.appendChild(currentTemp);
         currentCard.appendChild(currentDescr);

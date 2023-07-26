@@ -2,6 +2,7 @@
     background-color: lightgray;
 }
 
-.card-group {
-    display: none;
+.card-body {
+    border-color: black;
+    display: flex;
 }
