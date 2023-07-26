@@ -8,6 +8,7 @@ let lowTemp = document.querySelector(".low");
 let cards = document.querySelectorAll(".card");
 let test = document.querySelector(".test");
 
+
 console.log();
 
 theButton.addEventListener('click', GO);
@@ -19,6 +20,7 @@ function GO(event) {
     fetchInfo(locationRequest);
     event.preventDefault();
 }
+
 function fetchInfo(locationRequest) {
     fetch(locationRequest)
         .then(function (response) {
@@ -29,25 +31,22 @@ function fetchInfo(locationRequest) {
             const longitude = newResponse[0].lon;
             const newCity = newResponse[0].name;
             const urlRequest = 'https://api.openweathermap.org/data/2.5/forecast?lat=' + latitude + '&lon=' + longitude + '&appid=4d8f86000d241e776281dc749be197b9&units=imperial';
-            console.log(latitude)
-            console.log(longitude)
             fetch(urlRequest)
                 .then(function (response) {
                     return response.json()
                 })
                 .then(function (secRequ) {
-                    console.log(secRequ)
+                    console.log()
                     sharedData (secRequ, newCity);
                 })
         })
 };
 
 function sharedData(secRequ, newCity) {
-    console.log(secRequ, newCity)
+    console.log(secRequ)
     
     currentWeather(secRequ.list, secRequ.city.name);
 
-    // forecastWeather (secRequ.list);
     console.log();
 }
 
@@ -64,45 +63,35 @@ function currentWeather(data,city) {
         let currentFeels = document.createElement("div")
         let tempLow = document.createElement("div");
         let tempHigh = document.createElement("div");
-        console.log(currentCard);
-        
+        console.log();
 
-        // test.append(currentCard);
-        currentTitle.textContent = data[i].dt;
+        currentCard.setAttribute("class", "cards")
         currentTemp.textContent = "Temp: " + data[i].main.temp
         currentDescr.textContent = " Description: " + data[i].weather[0].description
         currentFeels.textContent = "Feels like: " + data[i].main.feels_like
         tempLow.textContent = 'Low: ' + data[i].main.temp_min
         tempHigh.textContent = 'High: ' + data[i].main.temp_max
 
-        let weekDay = currentTitle.textContent;
-        weekDay = dayjs(weekDay).format("MMM d, YYYY, hh:mm:ss a");
+        let weekDay = dayjs(data[i].dt_txt).format("ddd");
+        currentTitle.textContent = weekDay;
         console.log(weekDay);
 
         test.classList.add("card-group");
-        // currentCard.setAttribute = ("class", "card");
         currentCard.classList.add("card", "card-body");
-        // currentTitle.setAttribute = ("class", "card-title");
         currentTitle.classList.add("card-title");
-        // currentTemp.setAttribute = ("class", "card-body");
         currentTemp.classList.add("card-text");
-        // currentDescr.setAttribute = ("class", "card-body");
         currentDescr.classList.add("card-text");
-        // currentFeels.setAttribute = ("class", "card-body");
         currentFeels.classList.add("card-text");
-        // tempLow.setAttribute = ("class", "card-body");
         tempLow.classList.add("card-text");        
         tempHigh.classList.add("card-text");
 
-// currentCard.setAttribute = ("class", "weather");
-        // currentCard.setAttribute = ("class", "feels-like");
         currentCard.appendChild(currentTitle);
         currentCard.appendChild(currentTemp);
         currentCard.appendChild(currentDescr);
         currentCard.appendChild(tempHigh);
         currentCard.appendChild(tempLow);
         document.querySelector(".test").append(currentCard)
-        console.log(data[i])
+        console.log()
     }
 }
 
@@ -110,5 +99,5 @@ function createCard(currentCard, weatherData) {
     for (i = 0; i < weatherData.length; i++) {
         weatherData = document.createElement("li");
     }
-    console.log(weatherData.length);
+    console.log(weatherData);
 }

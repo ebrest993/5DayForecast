@@ -2,7 +2,11 @@
     background-color: lightgray;
 }
 
-.card-body {
+.cards {
     border-color: black;
     background-color: lightgrey;
+
 }
+
+/* .test {
+} */
