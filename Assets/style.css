@@ -1,12 +1,8 @@
 * {
-    background-color: lightgray;
+
 }
 
 .cards {
-    border-color: black;
-    background-color: lightgrey;
-
+    border-color: var(--bs-info-border-subtle);
 }
 
-/* .test {
-} */
